@@ -26,7 +26,7 @@ const char * html_page = R""""(
 }
 </style>
 </head>
-<body onload='updateValues()'>
+<body onload='init()'>
 <p><h1>ESP LED Driver</h1></p>
 <p><h2 id='temperature'></h2></p>
 <p><h2 id='command'></h2></p>
@@ -44,6 +44,10 @@ const char * html_page = R""""(
 	<th>Checkbox<input type='checkbox' onChange="sliderFunction('check',this.checked)" id='check'></th>
 </tr>
 <script>
+  function init() {
+	  updateValues();
+	  var id=setInterval(updateValues,5000);
+  }
   function updateValues() {
     const req = new XMLHttpRequest();
     req.open('GET','/settings');
