@@ -266,7 +266,5 @@ void loop() {
   // Webserver processing
   server.handleClient();
 
-  delay(2000);
-  Serial.println("loop");
-  Serial.flush();
+  delay(500);
 }
